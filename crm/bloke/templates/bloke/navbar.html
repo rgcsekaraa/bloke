@@ -25,18 +25,18 @@
         {% if user.is_authenticated %}
         <!-- Items for authenticated users -->
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">Dashboard</a>
+          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">Sign out</a>
+          <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
         </li>
         {% else %}
         <!-- Items for unauthenticated users -->
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">Register</a>
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">Login</a>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
         {% endif %}
       </ul>
