@@ -3,6 +3,7 @@ from .forms import CreateUserForm, LoginForm
 from django.contrib.auth.models import auth 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
+from .models import Record
 
 def index(request):
     return render(request, "bloke/index.html")
@@ -38,7 +39,9 @@ def login(request):
 
 @login_required(login_url="login")
 def dashboard(request):
-    return render(request, "bloke/dashboard.html")
+    my_records = Record.objects.all()
+    context = {"records": my_records}
+    return render(request, "bloke/dashboard.html", context=context)
 
 
 def user_logout(request):
