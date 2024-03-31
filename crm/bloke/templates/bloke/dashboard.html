@@ -3,7 +3,7 @@
 <h1>Dashboard</h1>
 <h5>Welcome to your dashboard, {{ user.username }}</h5>
 <hr />
-<a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create_record' %}">
   create new record
 </a>
 <hr />
@@ -33,7 +33,12 @@
       <td>{{ record.state }}</td>
       <td>{{ record.country }}</td>
       <td>
-        <a class="btn btn-outline-primary btn-sm"> view </a>
+        <a
+          class="btn btn-outline-primary btn-sm"
+          href="{% url 'record' record.id %}"
+        >
+          view
+        </a>
       </td>
     </tr>
     {% endfor %} {% endif %}
