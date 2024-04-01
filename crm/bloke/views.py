@@ -32,7 +32,7 @@ def login(request):
 
             if user is not None:
                 auth.login(request, user)
-                return redirect("index")
+                return redirect("dashboard")
 
     context = {"loginform": form}
     return render(request, "bloke/login.html", context=context)
