@@ -12,5 +12,13 @@
     <p><strong>Country</strong> {{ record.country }}</p>
   </div>
 </div>
+<br />
+<a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">Back</a>
+&nbsp;
+<a
+  class="btn btn-outline-primary btn-sm"
+  href="{% url 'update_record' record.id %}"
+  >Update</a
+>
 
 {% endblock %}
