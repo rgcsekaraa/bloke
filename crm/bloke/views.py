@@ -73,6 +73,12 @@ def single_record(request, pk):
     context = {"record": all_records}
     return render(request, "bloke/view_record.html", context=context)
 
+@login_required(login_url="login")
+def delete_record(request, pk):
+    record = Record.objects.get(id=pk)
+    record.delete()
+    return redirect("dashboard")
+
 
 
 def user_logout(request):

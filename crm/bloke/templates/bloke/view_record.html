@@ -1,7 +1,10 @@
 {% extends 'bloke/base.html' %} {% block content %}
 
 <div class="card">
-  <strong> {{ record.first_name | upper }} {{ record.last_name }} </strong>
+  <br>
+ 
+  <strong>  &nbsp;  &nbsp;{{ record.first_name | upper }} {{ record.last_name }} </strong>
+      <hr>
   <div class="card-body">
     <p><strong>ID</strong> {{ record.id }}</p>
     <p><strong>Email</strong> {{ record.email }}</p>
@@ -23,7 +26,7 @@
 &nbsp;
 <a
   class="btn btn-outline-danger btn-sm"
-  href="{% url 'update_record' record.id %}"
+  href="{% url 'delete_record' record.id %}"
   >Delete</a
 
 {% endblock %}
