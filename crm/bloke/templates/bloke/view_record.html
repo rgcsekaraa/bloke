@@ -16,9 +16,14 @@
 <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">Back</a>
 &nbsp;
 <a
-  class="btn btn-outline-primary btn-sm"
+  class="btn btn-outline-info btn-sm"
   href="{% url 'update_record' record.id %}"
   >Update</a
 >
+&nbsp;
+<a
+  class="btn btn-outline-danger btn-sm"
+  href="{% url 'update_record' record.id %}"
+  >Delete</a
 
 {% endblock %}
