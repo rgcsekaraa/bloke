@@ -7,10 +7,12 @@
     <p>Keep track of your customer records easily</p>
     <hr />
     <br />
-    {% if user.is_authenticated %} > {% else %}
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary" type="button" href="{% url 'dashboard' %}"
+      >Goto Dashboard</a
+    {% else %}
     <a class="btn btn-primary" type="button" href="{% url 'register' %}"
       >Register</a
-    >
     {% endif %}
   </div>
 </body>
