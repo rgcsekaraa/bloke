@@ -4,6 +4,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from .models import Record
+from django.contrib import messages
 
 def index(request):
     return render(request, "bloke/index.html")
@@ -15,6 +16,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Account created successfully")
             return redirect("login")
     
     context = {"form": form}
@@ -32,6 +34,7 @@ def login(request):
 
             if user is not None:
                 auth.login(request, user)
+                messages.success(request, "Login successful")
                 return redirect("dashboard")
 
     context = {"loginform": form}
@@ -50,6 +53,7 @@ def create_record(request):
         form = CreateRecordForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Record created successfully")
             return redirect("dashboard")
     context = {"form": form}
     return render(request, "bloke/create_record.html", context=context)
@@ -62,6 +66,7 @@ def update_record(request, pk):
         form = UpdateRecordForm(request.POST, instance=record)
         if form.is_valid():
             form.save()
+            messages.success(request, "Record updated successfully")
             return redirect("dashboard")
     context = {"form": form}
     return render(request, "bloke/update_record.html", context=context)
@@ -77,10 +82,12 @@ def single_record(request, pk):
 def delete_record(request, pk):
     record = Record.objects.get(id=pk)
     record.delete()
+    messages.success(request, "Record deleted successfully")
     return redirect("dashboard")
 
 
 
 def user_logout(request):
     auth.logout(request)
+    messages.success(request, "Logout successful")
     return redirect("index")

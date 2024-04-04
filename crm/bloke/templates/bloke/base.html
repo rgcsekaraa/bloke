@@ -23,16 +23,19 @@
       type="text/css"
       href="https://bootswatch.com/5/flatly/bootstrap.min.css"
     />
+    <!-- adding fafa css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!-- Navbar -->
     {% include 'bloke/navbar.html' %}
 
-    <div class="container">
-      <br />
-      <!-- notification -->
-      {% block content %} {% endblock %}
-    </div>
+    <!-- Content -->
+    {% block content %} {% endblock %}
+
     <!-- adding local js-->
     <script src="{% static 'js/app.js' %}"></script>
     <!-- adding font awesome -->
